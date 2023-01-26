@@ -1,5 +1,8 @@
 import Image from "next/image";
 import HeaderIcon from "./HeaderIcon"
+import {signOut,useSession} from 'next-auth/react';
+
+
 import {
     BellIcon,
     ChatBubbleOvalLeftIcon,
@@ -16,6 +19,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 function Header(){
+const{data:session} = useSession();
     return (
         <div className="sticky top-0 z-50 bg-white flex items-center p-2 lg:px-5 shadow-md">
             {/*Left*/}
@@ -43,7 +47,15 @@ function Header(){
 
 <div className="flex items-center sm:space-x-2 justify-end">
 {/*profile pic */}
-<p className='whitespace-nowrap font-semibold pr-3'> Akande Temitope</p>
+<Image 
+onClick={signOut}
+className='cursor-pointer rounded-full h-10'
+         src={session.user.image} 
+   
+width={40}
+height={40}
+      alt="profile" />
+<p className='whitespace-nowrap font-semibold pr-3'> {session.user.name}</p>
 <TableCellsIcon className="icon" />
 <ChatBubbleOvalLeftIcon className="icon" />
 <BellIcon className="icon" />
@@ -52,5 +64,5 @@ function Header(){
         </div>
     )
 }
-
+//"./profile.PNG"
 export default Header
