@@ -13,7 +13,7 @@ const{data:session} = useSession();
  
 if(!session) return <Login />;
 return (
-    <div className='bg-gray-100 overflow-hidden'>
+    <div className='h-screen bg-gray-100 overflow-hidden'>
       <Head>
         <title>Facebook</title>
       </Head>
