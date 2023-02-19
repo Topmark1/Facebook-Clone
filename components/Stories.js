@@ -3,7 +3,7 @@ import StoryCard from './StoryCard';
 
 const stories = [
 {
-name:"Temitope Akande",
+name:"Sony Sanga",
 src:"https://links.papareact.com/zof",
 profile:"https://links.papareact.com/l4v",
 },
@@ -15,7 +15,7 @@ profile:"https://links.papareact.com/kxk",
 {
 name:"Jeff Bezoz",
 src:"https://links.papareact.com/k2j",
-profile:"https://links.papareact.com/f0p",
+profile:"https://links.papareact.com/k2j",
 },
 {
 name:"Mark Zuckerberg",

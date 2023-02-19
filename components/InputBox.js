@@ -20,7 +20,7 @@ const [imageToPost,setImageToPost] = useState(null);
 const sendPost =(e) =>{
 e.preventDefault();
 if(!inputRef.current.value) return;
-
+//green
 addDoc(collection(db, "users"), {
     message: inputRef.current.value,
 name:session.user.name,
@@ -39,19 +39,16 @@ null,
 error=>console.error(error),
 ()=>{
 //when the upload complete
-///////
-/*storage.ref('posts').child(docRef.id).getDownloadURL().then(url=>{db.collection('posts').docRef(docRef.id).set({postImage:url},{merge:true})
-})*/
+
 getDownloadURL(uploadTask).then(url=>{updateDoc(doc(db,'users',docRef.id),({postImage:url}))
 })
-console.log(getDownloadURL(uploadTask))
+//console.log(getDownloadURL(uploadTask))
 //////////////
 }
 )
-//removeImage();
 }})			
  
-
+//image
 inputRef.current.value="";
 } ;
 
@@ -70,7 +67,7 @@ const removeImage = () => {
 	<div className="flex space-x-4 p-4 items-center">
 	<Image
 className="rounded-full"
-alt=''
+alt='facebook practice'
 src={session.user.image}
 width={40}
 height={40}
@@ -99,7 +96,7 @@ placeholder={"what's on your mind, "+ session.user.name+'?'}
 <p className='text-xs sm:text-sm xl:text-base'>Live Video</p>
     		</div>
 		<div onClick={()=>filepickerRef.current.click()} className='inputIcon'>
-<CameraIcon className='h-7 text-green-500'/>
+<CameraIcon className='h-7 text-green-700'/>
 <p className='text-xs sm:text-sm xl:text-base'>Photo/Video</p>
 <input ref={filepickerRef} onChange={addImagePost} type="file" hidden />
    		</div>

@@ -3,11 +3,15 @@ import Login from '../components/Login'
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
+import Widgets from '../components/Widgets';
 import {useSession} from 'next-auth/react';
+import {db} from '../firebase';
+import {collection,orderBy,query,getDocs} from 'firebase/firestore';
+//import {getServerSession} from 'next-auth/next';
+//import {authOptions} from './api/auth/[...nextauth]';
 
 
-
-export default function Home(){
+export default function Home({posts}){
  
 const{data:session} = useSession();
  
@@ -21,16 +25,16 @@ return (
       
 <Header />
     
-<main className='flex'>
+<main className='flex md:space-x-2'>
        
 {/*Sidebar*/}
 <Sidebar />
        
 {/*Feed*/}
-<Feed />
+<Feed posts={posts}/>
 
-  
-     {/*Widgets*/}
+{/*Widgets*/}
+<Widgets />
       
 </main>
     </div>
@@ -39,11 +43,17 @@ return (
 
 
 
+//for Server Side Rendering
+export async function getServerSideProps(){
+// const session = await getServerSession(
+//   context.req,
+//   context.res,
+//   authOptions);
+const posts = await getDocs(query(collection(db,'users'),orderBy('timestamp','desc')))
+const docs = posts.docs.map((post)=>({
+  id:post.id,
+  ...post.data(),
+  timestamp:null,
+}))
 
-//export async function getServerSideProps(context){
-
-
-
-//get the user
-//const session = await getSession(context);
-//return {props:{session,},}}
+return {props:{posts:docs},}}
