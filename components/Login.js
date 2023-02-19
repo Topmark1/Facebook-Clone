@@ -7,7 +7,7 @@ return (
 
 <img
 src="./logo.png"
-alt='next-auth practice'
+alt=''
 style={{width:'300px',
             height:'300px',padding:'10px',margin:'105px 20px 0px 0px'}}
 />
