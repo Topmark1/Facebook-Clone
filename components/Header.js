@@ -35,8 +35,8 @@ const{data:session} = useSession();
             </div>
             </div>
             {/* Center */}
-            <div className="flex justify-center flex-grow">
-                <div className="flex space-x-6 md:space-x-2">
+            <div className="flex justify-center flex-grow px-2">
+                <div className="flex space-x-4 md:space-x-2">
                     <HeaderIcon active Icon={HomeIcon} />
                     <HeaderIcon Icon={FlagIcon} />
                     <HeaderIcon Icon={PlayIcon} />
@@ -56,7 +56,7 @@ className='cursor-pointer rounded-full h-10'
 width={40}
 height={40}
       alt="profile" />
-<p className='whitespace-nowrap font-semibold pr-3'> {session.user.name}</p>
+<p className='hidden whitespace-nowrap sm:flex font-semibold pr-3'> {session.user.name}</p>
 <TableCellsIcon className="icon" />
 <ChatBubbleOvalLeftIcon className="icon" />
 <BellIcon className="icon" />

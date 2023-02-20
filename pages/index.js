@@ -57,3 +57,6 @@ const docs = posts.docs.map((post)=>({
 }))
 
 return {props:{posts:docs},}}
+//to activate code do this 2 things --->
+//switch live mode on
+//https://facebook-clone-lac-nine.vercel.app/  on env from http://localhost:3000

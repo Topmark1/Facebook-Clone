@@ -64,7 +64,7 @@ const removeImage = () => {
 
     return (
     <div className="bg-white p-2 rounded-2xl shadow-md text-gray-500 font-medium mt-6">
-	<div className="flex space-x-4 p-4 items-center">
+	<div className="flex space-x-1 sm:space-x-4 p-4 items-center">
 	<Image
 className="rounded-full"
 alt='facebook practice'
@@ -75,7 +75,7 @@ layout='fixed'
 />
 <form className="flex flex-1">
 <input 
-className="rounded-full h-12 bg-gray-100 flex-grow px-5 focus:outline-none"
+className="p-2 rounded-full h-12 bg-gray-100 flex-grow sm:px-5 focus:outline-none text-xs sm:text-xl"
 type="text"
 ref={inputRef} 
 placeholder={"what's on your mind, "+ session.user.name+'?'}
@@ -90,18 +90,18 @@ placeholder={"what's on your mind, "+ session.user.name+'?'}
 </div>)
 }
     	</div>
-	<div className='flex justify-evenly p-3 border-t'>
-		<div className='inputIcon'>
+	<div className='flex p-3 border-t justify-between'>
+		<div className='inputIcon flex-col sm:flex-row w-1/3'>
 	<VideoCameraIcon className='h-7 text-red-500'/>
 <p className='text-xs sm:text-sm xl:text-base'>Live Video</p>
     		</div>
-		<div onClick={()=>filepickerRef.current.click()} className='inputIcon'>
+		<div onClick={()=>filepickerRef.current.click()} className='inputIcon flex-col sm:flex w-1/3 '>
 <CameraIcon className='h-7 text-green-700'/>
 <p className='text-xs sm:text-sm xl:text-base'>Photo/Video</p>
 <input ref={filepickerRef} onChange={addImagePost} type="file" hidden />
    		</div>
 
-		<div className='inputIcon'>
+		<div className='inputIcon flex-col sm:flex-row w-1/3'>
 <FaceSmileIcon className='h-7 text-yellow-500'/>
 <p className='text-xs sm:text-sm xl:text-base'>Feeling/Activity</p>
     		</div>
