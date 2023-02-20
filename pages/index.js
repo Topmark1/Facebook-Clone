@@ -19,7 +19,7 @@ if(!session) return <Login />;
 return (
     <div className='h-screen bg-gray-100 overflow-hidden'>
       <Head>
-        <title>Facebook</title>
+        <title>Faceback</title>
       </Head>
       {/*Header*/}
       
